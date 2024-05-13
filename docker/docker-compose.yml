@@ -1,0 +1,89 @@
+version: '3'
+services:
+  sistema_venda_api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile/Dockerfile
+    ports:
+      - '8080:8080'
+    volumes:
+      - '../www/html/sistema-venda-api:/var/www/html/sistema-venda-api'
+    depends_on:
+      - database
+      - database_test
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=database
+      - DB_PORT=3306
+      - DB_DATABASE=db_name
+      - DB_USERNAME=db_user
+      - DB_PASSWORD=db_password
+      - PHP_INI_MEMORY_LIMIT=256M
+      - DB_TEST_DATABASE=db_name_test
+      - DB_TEST_USERNAME=db_user
+      - DB_TEST_PASSWORD=db_password
+    networks:
+      - default
+
+  database:
+    image: mysql:8.0
+    ports:
+      - '3308:3306'
+    environment:
+      - MYSQL_DATABASE=db_name
+      - MYSQL_ROOT_PASSWORD=db_password
+      - MYSQL_USER=db_user
+      - MYSQL_PASSWORD=db_password
+    volumes:
+      - ../database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - default
+
+  database_test:
+    image: mysql:8.0
+    ports:
+      - '3307:3306'
+    environment:
+      - MYSQL_DATABASE=db_name_test
+      - MYSQL_ROOT_PASSWORD=db_password
+      - MYSQL_USER=db_user
+      - MYSQL_PASSWORD=db_password
+    volumes:
+      - ../database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - default
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: 'phpmyadmin'
+    ports:
+      - '8085:80'
+    environment:
+      PMA_HOST: database
+      PMA_PORT: 3306
+      PMA_USER: db_user
+      PMA_PASSWORD: db_password
+    networks:
+      - default
+    depends_on:
+      - database
+
+  sistema_venda_front:
+    image: node:14.21.3
+    volumes:
+      - '../www/html/sistema-venda-front:/app'
+    ports:
+      - "3000:3000"
+    networks:
+      - default
+    depends_on:
+      - sistema_venda_api
+    command: bash -c "npm install && npm start"
+    working_dir: /app
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+
+networks:
+  default:
+    driver: bridge
