@@ -52,32 +52,30 @@ const ViewSale = ({ saleId }) => {
         <div className="store-info">
           <p>Mercado</p>
           <p>DS Soluções em tecnologia</p>
-          {/* <div className="cnpj">CNPJ: 00.000.000/0000-00</div> */}
           <p>Três Cachoeiras - RS</p>
         </div>
       </div>
       <div className="body">
-        <center><p>-----------------------------------------------------------------------------------</p></center>
+        <center><p>-------------------------------------------------------------------------------</p></center>
         <div className="title">CUPOM FISCAL ELETRÔNICO</div>
-        <center><p>-----------------------------------------------------------------------------------</p></center>
+        <center><p>-------------------------------------------------------------------------------</p></center>
         <div className="items">
           {viewSaleData.items.map(item => (
             <React.Fragment key={item.product.id}> 
               <center><p>{item.product.description} - {item.quantity} x R$ {item.price_per_unit} - R$ {item.total_price}</p></center>
             </React.Fragment>
           ))}
-          <center><p>-----------------------------------------------------------------------------------</p></center>
+          <center><p>-----------------------------------------------------------------------------</p></center>
           <center><p>Valor Total: R$ {viewSaleData.total_amount.toFixed(2)} </p></center>
           <center><p>Impostos: R$ {viewSaleData.total_tax.toFixed(2)} </p></center>
-          <center><p>-----------------------------------------------------------------------------------</p></center>
+          <center><p>-----------------------------------------------------------------------------</p></center>
         </div>
       </div>
       <div className="footer">
-        <p>OBSERVAÇÕES DO CONTRIBUINTE</p>
-        {/* <p>Lei Federal 12.741/2012</p> */}
+        <p>OBSERVAÇÕES</p>
         <p>{new Date(viewSaleData.created_at).toLocaleString('pt-BR', { dateStyle: 'full', timeStyle: 'full' })} </p>
         <center><p>-----------------------------------------------------------------------------------</p></center>
-        <center><p>AGRADECEMOS PELA PREFERENCIA</p></center>
+        <center><p>AGRADECEMOS PELA PREFERÊNCIA</p></center>
       </div>
       <div className="button-group">
         <button className="btn" onClick={() => navigate('/sales')}>Voltar</button>

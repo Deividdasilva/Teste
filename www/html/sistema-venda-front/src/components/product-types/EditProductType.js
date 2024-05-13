@@ -53,7 +53,7 @@ const EditProductType = () => {
     return (
         <div className="container mt-5">
             <div className="d-flex justify-content-center align-items-center mb-3">
-                <h2>Edição do Tipo Produto</h2>
+                <h2>Edição Tipo de Produto</h2>
             </div>
             <form onSubmit={handleSubmit}>
                 <div className="row">

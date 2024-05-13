@@ -39,7 +39,6 @@ function Menu() {
                         <ul style={{ listStyleType: 'none', paddingLeft: '20px' }}>
                             <li style={{ padding: '10px' }}>
                                 <NavLink to="/product-types/new" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'white' }}>
-                                    {/* <FontAwesomeIcon icon={faTags} style={{ marginRight: '10px' }} /> */}
                                     - Tipo de Produto
                                 </NavLink>
                             </li>
@@ -51,7 +50,6 @@ function Menu() {
                             </li>
                             <li style={{ padding: '10px' }}>
                                 <NavLink to="/sales/new" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'white' }}>
-                                    {/* <FontAwesomeIcon icon={faShoppingCart} style={{ marginRight: '10px' }} /> */}
                                     - Venda
                                 </NavLink>
                             </li>

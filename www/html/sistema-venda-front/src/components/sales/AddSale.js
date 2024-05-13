@@ -211,7 +211,7 @@ const AddSale = () => {
                 <thead>
                   <tr>
                     <th scope="col">Produto</th>
-                    {/* <th scope="col">Preço Unitário</th> */}
+                    <th scope="col">Preço Unitário</th>
                     <th scope="col">Quantidade</th>
                     <th scope="col">Total</th>
                     <th scope="col">Ação</th>
@@ -223,7 +223,7 @@ const AddSale = () => {
                     return (
                       <tr key={item.product_id}>
                         <td>{product.description}</td>
-                        {/* <td>R$ {product.price.toFixed(2)}</td> */}
+                        <td>R$ {product.price.toFixed(2)}</td>
                         <td>{item.quantity}</td>
                         <td>R$ {(product.price * item.quantity).toFixed(2)}</td>
                         <td>

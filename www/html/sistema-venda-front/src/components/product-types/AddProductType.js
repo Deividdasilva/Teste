@@ -43,7 +43,7 @@ const AddProductType = () => {
   return (
     <div className="container mt-5">
       <div className="d-flex justify-content-center align-items-center mb-3">
-        <h2>Cadastro de Tipos de Produtos</h2>
+        <h2>Cadastro Tipo de Produtos</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="row">

@@ -34,8 +34,8 @@ docker-compose up -d
 
 ## Estrutura do Projeto
 
-- `/www/html/sistema-venda-api/`: Código-fonte da API backend PHP.
-- `/www/html/sistema-venda-front/`: Código-fonte do frontend React.
+- `/www/html/sistema-venda-api/`: Código-fonte API backend PHP.
+- `/www/html/sistema-venda-front/`: Código-fonte frontend React.
 - `/database/init.sql`: Dump do banco de dados MySQL.
 - `/docker`: Arquivos de configuração para Docker e Docker Compose.
 
@@ -45,3 +45,4 @@ A documentação da API está disponível em Swagger. Consulte os endpoints, par
 
 ## Testes
 
+Para a realização dos testes, foi estabelecido um container de banco de dados específico para testes. Assim, os testes podem ser executados antes de iniciar o servidor local. A configuração que diferencia as bases de dados está definida no arquivo connection na api.
