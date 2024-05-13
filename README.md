@@ -1,7 +1,7 @@
 
 # sistema-vendas 
 
-Este projeto consiste em uma API backend desenvolvida em PHP 8.0.1, sem o uso de frameworks, e um frontend em React. Utiliza MySQL como sistema de banco de dados, com Docker e Docker Compose para simplificar a configuração e a execução do ambiente de desenvolvimento.
+Este projeto envolve a criação de uma API backend utilizando PHP 8.0.1, sem recorrer a frameworks, acompanhada de um frontend desenvolvido em React. O sistema de banco de dados empregado é o MySQL, e para facilitar a configuração e o gerenciamento do ambiente de desenvolvimento, são utilizados Docker e Docker Compose.
 
 ## Requisitos
 
